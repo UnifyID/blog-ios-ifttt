@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -96,7 +96,6 @@
 				A627DFFA1B99E706AEFE07C9 /* Pods-GaitAuth IFTTT.debug.xcconfig */,
 				A924D7F9B80E7CF31D117F3C /* Pods-GaitAuth IFTTT.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
