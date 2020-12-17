@@ -9,6 +9,8 @@ import SwiftUI
 import UnifyID
 import GaitAuth
 
+//TODO: run this with the background task scheduler so it'll keep running when
+// the app is put in the background.
 class GaitAuthHelper {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var gaitAuth: GaitAuth? = nil
