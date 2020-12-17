@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44A501706D6824B38839F4E6 /* libPods-GaitAuth IFTTT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2593ED141B525C9DF546AC /* libPods-GaitAuth IFTTT.a */; };
 		810B8DAB258B93D800BEABBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B8DAA258B93D800BEABBA /* AppDelegate.swift */; };
 		810B8DAD258B93D800BEABBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B8DAC258B93D800BEABBA /* SceneDelegate.swift */; };
 		810B8DAF258B93D800BEABBA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B8DAE258B93D800BEABBA /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D2593ED141B525C9DF546AC /* libPods-GaitAuth IFTTT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GaitAuth IFTTT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		810B8DA7258B93D800BEABBA /* GaitAuth IFTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GaitAuth IFTTT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		810B8DAA258B93D800BEABBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		810B8DAC258B93D800BEABBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		810B8DB3258B93DC00BEABBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		810B8DB6258B93DC00BEABBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		810B8DB8258B93DC00BEABBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A627DFFA1B99E706AEFE07C9 /* Pods-GaitAuth IFTTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaitAuth IFTTT.debug.xcconfig"; path = "Target Support Files/Pods-GaitAuth IFTTT/Pods-GaitAuth IFTTT.debug.xcconfig"; sourceTree = "<group>"; };
+		A924D7F9B80E7CF31D117F3C /* Pods-GaitAuth IFTTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GaitAuth IFTTT.release.xcconfig"; path = "Target Support Files/Pods-GaitAuth IFTTT/Pods-GaitAuth IFTTT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A501706D6824B38839F4E6 /* libPods-GaitAuth IFTTT.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AFBA248D58F41B4F90525A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D2593ED141B525C9DF546AC /* libPods-GaitAuth IFTTT.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		810B8D9E258B93D800BEABBA = {
 			isa = PBXGroup;
 			children = (
 				810B8DA9258B93D800BEABBA /* GaitAuth IFTTT */,
 				810B8DA8258B93D800BEABBA /* Products */,
+				EE9D92D80B9128B6683295C5 /* Pods */,
+				4AFBA248D58F41B4F90525A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +90,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		EE9D92D80B9128B6683295C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A627DFFA1B99E706AEFE07C9 /* Pods-GaitAuth IFTTT.debug.xcconfig */,
+				A924D7F9B80E7CF31D117F3C /* Pods-GaitAuth IFTTT.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 810B8DBB258B93DC00BEABBA /* Build configuration list for PBXNativeTarget "GaitAuth IFTTT" */;
 			buildPhases = (
+				66E3556823007D7637C8473C /* [CP] Check Pods Manifest.lock */,
 				810B8DA3258B93D800BEABBA /* Sources */,
 				810B8DA4258B93D800BEABBA /* Frameworks */,
 				810B8DA5258B93D800BEABBA /* Resources */,
+				27E4DE07383141FD0854A5CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27E4DE07383141FD0854A5CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GaitAuth IFTTT/Pods-GaitAuth IFTTT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GaitAuth IFTTT/Pods-GaitAuth IFTTT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GaitAuth IFTTT/Pods-GaitAuth IFTTT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66E3556823007D7637C8473C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GaitAuth IFTTT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		810B8DA3258B93D800BEABBA /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		810B8DBC258B93DC00BEABBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A627DFFA1B99E706AEFE07C9 /* Pods-GaitAuth IFTTT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +374,7 @@
 		};
 		810B8DBD258B93DC00BEABBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A924D7F9B80E7CF31D117F3C /* Pods-GaitAuth IFTTT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
