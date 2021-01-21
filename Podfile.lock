@@ -1,0 +1,24 @@
+PODS:
+  - UnifyID-Core (4.3.0)
+  - UnifyID-GaitAuth (4.3.0):
+    - UnifyID-Core (~> 4.3.0)
+  - UnifyID/GaitAuth (4.3.0):
+    - UnifyID-GaitAuth (~> 4.3.0)
+
+DEPENDENCIES:
+  - UnifyID/GaitAuth
+
+SPEC REPOS:
+  trunk:
+    - UnifyID
+    - UnifyID-Core
+    - UnifyID-GaitAuth
+
+SPEC CHECKSUMS:
+  UnifyID: 288a02d20d7a10669071f140eebe5f29b03c3136
+  UnifyID-Core: dd1e9726374f87e801a33ad722779f21165c5352
+  UnifyID-GaitAuth: 12d038ee4a96787cd4ba804653c9297cdf253369
+
+PODFILE CHECKSUM: 69ebb4746e589e2dddd3adb93c717c6728f988c6
+
+COCOAPODS: 1.10.0.rc.1

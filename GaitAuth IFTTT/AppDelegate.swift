@@ -11,10 +11,10 @@ import UnifyID
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let unifyid : UnifyID = { try! UnifyID(
-        sdkKey: "https://xxx@config.unify.id",
-        user: "unique-immutable-user-identifier"
+        sdkKey: "https://f8db57da2cd02f5d9c29748dec2829b0@config.unify.id",
+        user: "1111@cc.vvvb"
     )}()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

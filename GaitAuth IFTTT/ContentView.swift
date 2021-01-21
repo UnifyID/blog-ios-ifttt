@@ -9,32 +9,64 @@ import SwiftUI
 import UnifyID
 import GaitAuth
 
-//TODO: run this with the background task scheduler so it'll keep running when
-// the app is put in the background.
+/*
+ Note: To run training and authtication when your app is not running in the
+ foreground, consider scheduling GaitAuth operations in a Background Task:
+ https://developer.apple.com/documentation/backgroundtasks/bgtaskscheduler
+*/
 class GaitAuthHelper {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var gaitAuth: GaitAuth? = nil
-    var gaitModel: GaitModel? = nil
-    var gaitFeatures: [GaitFeature] = []
+    var _gaitAuth: GaitAuth? = nil
+    var _gaitModel: GaitModel? = nil
+    var _gaitFeatures: [GaitFeature] = []
+    let _defaults: UserDefaults = UserDefaults.standard
     
     init() {
-        self.gaitAuth = appDelegate.unifyid.gaitAuth
+        self._gaitAuth = appDelegate.unifyid.gaitAuth
     }
     
-    func startTraining() {
-        gaitAuth?.createModel { result in
-            switch result {
-            case .success(let gaitModel):
-                self.gaitModel = gaitModel
-            case .failure(_):
-                print("Unable to create model.")
-            }
+    private func loadModel(completion: (() -> Void)? = nil) {
+        // Don't re-load the model if it's already loaded.
+        if (_gaitModel != nil) {
+            completion?()
+            return
         }
         
-        gaitAuth?.startFeatureUpdates(to: DispatchQueue.main) { result in
+        // If we've already created a model, load it. Otherwise,
+        // create a new model.
+        let existingModelId = _defaults.string(forKey: "gaitModelId");
+        if (existingModelId != nil) {
+            _gaitAuth?.loadModel(withIdentifier: existingModelId!) { result in
+                switch result {
+                case .success(let gaitModel):
+                    self._gaitModel = gaitModel
+                    print("Loaded model with ID: \(existingModelId!)")
+                    completion?()
+                case.failure(_):
+                    print("Failed to existing model with ID: \(existingModelId!)")
+                }
+            }
+        } else {
+            _gaitAuth?.createModel { result in
+                switch result {
+                case .success(let gaitModel):
+                    self._gaitModel = gaitModel
+                    self._defaults.setValue(gaitModel.id, forKey: "gaitModelId")
+                    print("Successfully created new GaitAuth model.")
+                    completion?()
+                case .failure(_):
+                    print("Unable to create model.")
+                }
+            }
+        }
+    }
+    
+    // Start gathering features to train the app's GaitAuth model.
+    func startTraining() {
+        _gaitAuth?.startFeatureUpdates(to: DispatchQueue.main) { result in
             switch result {
             case .success(let features):
-                self.gaitFeatures = features
+                self._gaitFeatures = features
             case .failure(_):
                 print("Unable to start training")
             }
@@ -42,26 +74,46 @@ class GaitAuthHelper {
         return
     }
     
+    // Stop gathering features and submit them to UnifyID for model training.
     func finishTraining() {
-        gaitAuth?.stopFeatureUpdates()
+        _gaitAuth?.stopFeatureUpdates()
         
-        gaitModel?.add(gaitFeatures) { error in
+        _gaitModel?.add(_gaitFeatures) { error in
             if let error = error {
                 print("Error adding features to model:")
                 print(error)
                 return
             }
+            print("Features added to model.")
         }
            
-        gaitModel?.train() { error in
+        _gaitModel?.train() { error in
             if let error = error {
                 print("Error training model:")
                 print(error)
                 return
             }
+            print("Features uploaded to UnifyID. Training is in progress.")
         }
             
         return
+    }
+    
+    // Check to determine if the person operating the device is the same person
+    // the GaitAuth model is trained to recognize.
+    func checkAuthentication() -> Bool {
+        
+        if (_gaitModel == nil) {
+            print("Can't authenticate without a model.")
+            return false
+        }
+        
+        if (_gaitModel?.status !== GaitModel.Status.ready) {
+            print("Model exists, but is not ready for scoring.")
+            return false
+        }
+        
+        return false
     }
 }
 
@@ -73,16 +125,20 @@ struct ContentView: View {
         VStack() {
             Text("GaitAuth + IFTTT")
                 .padding()
+            
             Button(action: {
                 self.gaitAuthHelper.startTraining()
             }) {
                 Text("Start Training")
                     .padding(10.0)
             }
+            
             Button(action: {}) {
                 Text("Finish Training")
                     .padding(10.0)
             }
+            
+            Spacer()
         }
         
     }
