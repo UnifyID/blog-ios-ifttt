@@ -101,19 +101,23 @@ class GaitAuthHelper {
     
     // Check to determine if the person operating the device is the same person
     // the GaitAuth model is trained to recognize.
-    func checkAuthentication() -> Bool {
+    func checkAuthentication(completion: @escaping GaitAuth.Callback<AuthenticationResult>) {
         
         if (_gaitModel == nil) {
             print("Can't authenticate without a model.")
-            return false
+            return
         }
         
-        if (_gaitModel?.status !== GaitModel.Status.ready) {
+        if (_gaitModel?.status.name != GaitModel.Status.ready.name) {
             print("Model exists, but is not ready for scoring.")
-            return false
+            return
         }
         
-        return false
+        let authenticator = _gaitAuth?.authenticator(
+            config: GaitQuantileConfig(threshold: 0.0)!,
+            model: _gaitModel!)
+        
+        authenticator?.status(completion: completion)
     }
 }
 
@@ -133,8 +137,24 @@ struct ContentView: View {
                     .padding(10.0)
             }
             
-            Button(action: {}) {
+            Button(action: {
+                self.gaitAuthHelper.finishTraining()
+            }) {
                 Text("Finish Training")
+                    .padding(10.0)
+            }
+            
+            Button(action: {
+                self.gaitAuthHelper.checkAuthentication() { result in
+                    switch result {
+                    case .success(let authenticationResult):
+                        print("Authentication Succeeded")
+                    case .failure(let error):
+                        print("Authentication Failed")
+                    }
+                }
+            }) {
+                Text("Check Authentication")
                     .padding(10.0)
             }
             
