@@ -357,14 +357,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GaitAuth IFTTT/Preview Content\"";
-				DEVELOPMENT_TEAM = AZAP28Z542;
+				DEVELOPMENT_TEAM = LSPPXQRB53;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GaitAuth IFTTT/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.testapp.GaitAuth-IFTTT";
+				PRODUCT_BUNDLE_IDENTIFIER = "id.unify.GaitAuth-IFTTT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,14 +379,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GaitAuth IFTTT/Preview Content\"";
-				DEVELOPMENT_TEAM = AZAP28Z542;
+				DEVELOPMENT_TEAM = LSPPXQRB53;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GaitAuth IFTTT/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.testapp.GaitAuth-IFTTT";
+				PRODUCT_BUNDLE_IDENTIFIER = "id.unify.GaitAuth-IFTTT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
