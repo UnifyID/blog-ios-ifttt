@@ -1,0 +1,1 @@
+This repository contains the sample application accompanying the UnifyID blog post [Using UnifyID GaitAuth™ with IFTTT Rules](https://blog.unify.id/2021/02/04/using-unifyid-gaitauth-with-ifttt-rules/) by Ryan Peden.
